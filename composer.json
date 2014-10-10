@@ -1,7 +1,8 @@
 {
     "name": "fish/one-validator",
     "description": "Convert server-side to client-side validation",
-    "keywords":["laravel","validation"]
+    "keywords":["laravel","validation"],
+    "license":"MIT",
     "authors": [
         {
             "name": "Matanya Fishaimer",
