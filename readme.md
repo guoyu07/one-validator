@@ -1,6 +1,6 @@
 # Convert server-side validation to client-side in your Laravel app
 
-This Laravel 4 package will convert your server-side rules to the popular [JQuery validate](http://jqueryvalidation.org/) plugin format, while adding all of the necessary assets to support the Laravel set of rules (including remote rules) and messages (including custom attributes and localization).
+This Laravel 4+ package will convert your server-side rules to the popular [JQuery validate](http://jqueryvalidation.org/) plugin format, while adding all of the necessary assets to support the Laravel set of rules (including remote rules) and messages (including custom attributes and localization).
 File and Date rules are not supported and will be ignored.
 
 ## Installation
@@ -17,7 +17,7 @@ Next, update Composer from the Terminal:
 
 Once this operation completes, the final step is to add the service provider. Open `app/config/app.php`, and add a new item to the providers array.
 
-    'Fish\OneValidator\OneValidatorServiceProvider'
+    Fish\OneValidator\OneValidatorServiceProvider
 
 Next, publish the assets to your project:
 
@@ -38,3 +38,7 @@ The first argument is the path to the PHP file with a valid `$rules` array, rela
 
 By default the output will be echoed to the console.
 You can send the output to a file instead by using the `target` option, providing a path relative to the `app` folder.
+
+Remember to replace the default `.my-form` selector to your form selector.
+
+Laravel 5 users: You need to add the namespace to `Http/Controllers/OneValidatorController.php`.
