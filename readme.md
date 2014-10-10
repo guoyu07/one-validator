@@ -1,4 +1,4 @@
-# Convert server-side validation to client-side in your Laravel app
+# Server->Client Validation Converter
 
 This Laravel 4+ package will convert your server-side rules to the popular [JQuery validate](http://jqueryvalidation.org/) plugin format, while adding all of the necessary assets to support the Laravel set of rules (including remote rules) and messages (including custom attributes and localization).
 File and Date rules are not supported and will be ignored.
