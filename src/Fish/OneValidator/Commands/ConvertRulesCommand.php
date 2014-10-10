@@ -15,7 +15,7 @@ use Fish\OneValidator\Convert\MessagesFetcher;
 use Fish\OneValidator\JS\OutputHandler;
 use \App;
 
-class ConvertRulesCommand extends Command {
+class ConvertRulesCommand extends MyCommand {
 
 	/**
 	 * The console command name.
@@ -54,7 +54,8 @@ class ConvertRulesCommand extends Command {
 	public function fire()
 	{
 
-        if (!file_exists(app_path('controllers/OneValidatorController.php'))):
+        $controller = $this->laravelVersion()<5?'controllers/OneValidatorController.php':"Http/Controllers/OneValidator.php";
+        if (!file_exists(app_path($controller))):
             $this->error("The validator has not been initalized. Please run 'php artisan validator:init'");
             return false;
         endif;

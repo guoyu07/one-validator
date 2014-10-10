@@ -1,13 +1,12 @@
 <?php
 namespace Fish\OneValidator\Commands;
 
-use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Illuminate\Foundation\Application as App;
 
-class PublishAssetsCommand extends Command {
+class PublishAssetsCommand extends MyCommand {
 
     /**
      * The console command name.
@@ -40,6 +39,7 @@ class PublishAssetsCommand extends Command {
     public function fire()
     {
         $version = $this->laravelVersion();
+
         $controllerPath = $version<5?"controllers/OneValidatorController.php":"Http/Controllers/OneValidatorController.php";
         $controller = app_path($controllerPath);
         $routesPath = $version<5?"routes.php":"Http/routes.php";
@@ -61,13 +61,7 @@ class PublishAssetsCommand extends Command {
 
     }
 
-    /**
-     * @return string
-     */
-    private function laravelVersion() {
-        $app = new App;
-         return intval(substr($app::VERSION,0,1));
-    }
+
 
 
 
