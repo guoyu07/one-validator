@@ -1,0 +1,32 @@
+{
+    "name": "fish/one-validator",
+    "description": "",
+    "authors": [
+        {
+            "name": "Matanya Fishaimer",
+            "email": "matfish2@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "require-dev": {
+        "codeception/codeception":"*",
+        "fzaninotto/faker": "1.5.*@dev",
+        "behat/behat": "2.5.*@stable",
+        "behat/mink": "1.5",
+        "behat/mink-extension": "*",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-selenium2-driver": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Fish\\OneValidator": "src/"
+        },
+        "files":[
+            "tests/functional/OneValidatorTester.php"
+        ]
+    },
+    "minimum-stability": "stable"
+}

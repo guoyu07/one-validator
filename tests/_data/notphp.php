@@ -1,0 +1,1 @@
+echo "NOT A PHP FILE";
