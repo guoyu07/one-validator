@@ -1,3 +1,5 @@
+[![Latest Stable Version](https://poser.pugx.org/fish/one-validator/v/stable.svg)](https://packagist.org/packages/fish/one-validator) [![Total Downloads](https://poser.pugx.org/fish/one-validator/downloads.svg)](https://packagist.org/packages/fish/one-validator) [![Latest Unstable Version](https://poser.pugx.org/fish/one-validator/v/unstable.svg)](https://packagist.org/packages/fish/one-validator) [![License](https://poser.pugx.org/fish/one-validator/license.svg)](https://packagist.org/packages/fish/one-validator)
+
 # Server->Client Validation Converter
 
 This Laravel 4+ package will convert your server-side rules to the popular [JQuery validate](http://jqueryvalidation.org/) plugin format, while adding all of the necessary assets to support the Laravel set of rules (including remote rules) and messages (including custom attributes and localization).
