@@ -54,7 +54,7 @@ class ConvertRulesCommand extends MyCommand {
 	public function fire()
 	{
 
-        $controller = $this->laravelVersion()<5?'controllers/OneValidatorController.php':"Http/Controllers/OneValidator.php";
+        $controller = $this->laravelVersion()<5?'controllers/OneValidatorController.php':"Http/Controllers/OneValidatorController.php";
         if (!file_exists(app_path($controller))):
             $this->error("The validator has not been initalized. Please run 'php artisan validator:init'");
             return false;
