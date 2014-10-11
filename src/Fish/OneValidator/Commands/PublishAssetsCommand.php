@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\File;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Illuminate\Foundation\Application as App;
+use Fish\OneValidator\AssetsPublisher;
 
 class PublishAssetsCommand extends MyCommand {
 
@@ -22,6 +23,10 @@ class PublishAssetsCommand extends MyCommand {
      */
     protected $description = 'Publish the package assets to the project.';
 
+    /**
+     * @var \Fish\OneValidator\AssetsPublisher
+     */
+    protected $publisher;
 
     /**
      * Create a new command instance.
@@ -31,6 +36,8 @@ class PublishAssetsCommand extends MyCommand {
     public function __construct()
     {
         parent::__construct();
+        $version = $this->laravelVersion();
+        $this->publisher = new AssetsPublisher($version);
     }
 
     /**
@@ -38,31 +45,15 @@ class PublishAssetsCommand extends MyCommand {
      */
     public function fire()
     {
-        $version = $this->laravelVersion();
-
-        $controllerPath = $version<5?"controllers/OneValidatorController.php":"Http/Controllers/OneValidatorController.php";
-        $controller = app_path($controllerPath);
-        $routesPath = $version<5?"routes.php":"Http/routes.php";
-        $route = app_path($routesPath);
-
-        if (file_exists($controller)) {
+        if (!$this->publisher->publish()):
             $this->error('The validator was already initalized');
             return false;
-        }
+        endif;
 
-        copy(__DIR__."/../assets/OneValidatorController.php",$controller);
-        copy(__DIR__."/../assets/one-validator.min.js",public_path("one-validator.min.js"));
+           $this->info('Successfully initialized one-validator.');
 
-        $routes = file_get_contents(__DIR__.'/../assets/routes.php');
-        file_put_contents($route, PHP_EOL . $routes, FILE_APPEND);
-
-        $this->info('Successfully initialized one-validator.');
         return true;
 
     }
-
-
-
-
 
 }

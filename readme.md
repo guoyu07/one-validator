@@ -2,8 +2,9 @@
 
 # Server->Client Validation Converter
 
+While client-side validation is a standard nowadays, setting it is tedious and anti-DRYful.
 This Laravel 4+ package will convert your server-side rules to the popular [JQuery validate](http://jqueryvalidation.org/) plugin format, while adding all of the necessary assets to support the Laravel set of rules (including remote rules) and messages (including custom attributes and localization).
-File and Date rules are not supported and will be ignored.
+File and date rules are not supported and will be ignored.
 
 ## Installation
 
@@ -36,11 +37,9 @@ The syntax is:
 
     php artisan validator:convert path/to/file [--target=validation.js]
 
-The first argument is the path to the PHP file with a valid `$rules` array, relative to the `app` folder.
+The first argument is the path to a PHP file with a valid `$rules` array, relative to the `app` folder.
 
 By default the output will be echoed to the console.
 You can send the output to a file instead by using the `target` option, providing a path relative to the `app` folder.
 
-Remember to replace the default `.my-form` selector to your form selector.
-
-Laravel 5 users: You need to add the namespace to `Http/Controllers/OneValidatorController.php`.
+Remember to replace the default `.my-form` selector with your own form selector.

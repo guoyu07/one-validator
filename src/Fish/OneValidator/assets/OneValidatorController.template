@@ -1,9 +1,12 @@
 <?php
+{{#laravel5}}namespace {{appname}}\Http\Controllers;
 
+{{/laravel5}}
 use Illuminate\Validation\Factory as Validator;
 use Illuminate\Http\Request;
 use Fish\OneValidator\Convert\MessagesFetcher;
 use Illuminate\Support\Facades\Response;
+
 class OneValidatorController extends BaseController {
 
     /**
